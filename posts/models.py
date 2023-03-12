@@ -19,11 +19,21 @@ class Post(models.Model):
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ["date_posted"]
 
-class Meta:
-    ordering = ["-created_on"]
+    def __str__(self):
+        return self.title
 
 
-def __str__(self):
-    return self.title
+class Review(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    content = models.TextField()
+    date_posted = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+
 
