@@ -28,12 +28,11 @@ class Post(models.Model):
 
 class Review(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
     content = models.TextField()
     date_posted = models.DateField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
-
-
-
-
+        return f'Review for {self.post.title}'
