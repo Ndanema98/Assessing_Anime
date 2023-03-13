@@ -9,7 +9,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug', 'status', 'date_posted')
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
-    list_filter = {'status', 'date_posted'}
+    list_filter = ('status', 'date_posted')
     summernote_fields = ('description')
 
 
@@ -18,7 +18,7 @@ class ReviewAdmin(SummernoteModelAdmin):
 
     list_display = ('name', 'content', 'post', 'date_posted', 'approved')
     list_filter = ('approved', 'date_posted')
-    search_fields = ('name', 'email', 'content')
+    search_fields = ['name', 'email', 'content']
     summernote_fields = ('content')
     actions = ['approve_reviews']
 
@@ -26,6 +26,3 @@ class ReviewAdmin(SummernoteModelAdmin):
         queryset.update(approved=True)
 
 
-
-
-# Register your models here.
