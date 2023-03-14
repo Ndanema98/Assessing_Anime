@@ -15,6 +15,7 @@ class Post(models.Model):
     )
     image = CloudinaryField('image', default='placeholder')
     status = models.IntegerField(choices=STATUS, default=0)
+    excerpt = models.TextField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
@@ -27,7 +28,8 @@ class Post(models.Model):
 
 
 class Review(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="reviews")
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80, default="Anonymous")
     email = models.EmailField(default="example@example.com")
     content = models.TextField()
