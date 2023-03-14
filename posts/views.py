@@ -8,7 +8,3 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("date_posted")
     template_name = "index.html"
     paginate_by = 4
-
-
-
-# Create your views here.
