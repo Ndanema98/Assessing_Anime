@@ -19,7 +19,7 @@ class PostDetail(View):
         reviews = post.reviews.filter(approved=True).order_by('date_posted')
 
         return render(
-            request, 
+            request,
             "post_detail.html",
             {
                 "post": post,
