@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>Posted by {{ post.author }} on {{ post.date_posted }}</p>
+  <p>{{ post.content }}</p>
+  <p>Upvotes: {{ post.upvotes }}</p>
+  <p>Downvotes: {{ post.downvotes }}</p>
+  <p><a href="{#}">Upvote</a></p>
+  <p><a href="{#}">Downvote</a></p>
+  <h2>Reviews:</h2>
+  {% for review in post.reviews.all %}
+    <div class="review">
+      <h3>{{ review.title }}</h3>
+      <p>Posted by {{ review.author }} on {{ review.date_posted }}</p>
+      <p>{{ review.content }}</p>
+    </div>
+  {% empty %}
+    <p>No reviews yet.</p>
+  {% endfor %}
+  {% if user.is_authenticated %}
+    <h2>Add a Review:</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  {% else %}
+    <p><a href="{% url 'login' %}?next={{ request.path }}">Log in</a> to add a review.</p>
+  {% endif %}
+{% endblock %}
