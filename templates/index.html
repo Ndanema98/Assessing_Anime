@@ -30,9 +30,9 @@
               </h2>
               <p class="card-text">{{ post.excerpt }}</p>
               {% if user.is_authenticated %}
-              <a href="{#}" class="btn btn-success">Read More</a>
+              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">Read More</a>
               {% else %}
-              <a href="{#}" class="btn btn-success">Read More</a>
+              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">Read More</a>
               {% endif %}
               <hr>
               <p class="card-text h6">{{ post.date_posted }}</p>
