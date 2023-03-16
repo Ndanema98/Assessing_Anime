@@ -25,3 +25,18 @@ class PostDetail(View):
                 "post": post,
             }
         )
+
+
+def post(request):
+    return HttpResponse('Post view')
+
+
+def review(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    context = {
+        'post': post,
+    }
+    
+    return render(request, 'post_detail.html', context)
+
+

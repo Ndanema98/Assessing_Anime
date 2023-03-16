@@ -20,6 +20,11 @@ class Post(models.Model):
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.item_name.replace(" ", '-')
+        super().save(*args, **kwargs)
+        
     class Meta:
         ordering = ["date_posted"]
 
