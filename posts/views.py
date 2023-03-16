@@ -45,8 +45,9 @@ def create_post(request):
     form = PostForm(request.POST or None)
 
     if form.is_valid():
-        form.instance.user = request.user
-        form.save()
+        post = form.save(commit=False)
+        post.author = request.user
+        post.save()
         return redirect('posts:PostList')
 
     return render(request, 'post_form.html', {'form': form})

@@ -22,7 +22,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.item_name.replace(" ", '-')
+            self.slug = self.title.replace(" ", '-')
         super().save(*args, **kwargs)
         
     class Meta:
