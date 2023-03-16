@@ -20,9 +20,9 @@
               <h2 class="card-title">{{ post.title }}
                 {% if user.is_authenticated %}
                 <strong>
-                  <form class="d-inline" action="{#}" method="POST">
+                  <form class="d-inline" action="{% url 'posts:delete_post' post_id=post.id %}" method="POST">
                     {% csrf_token %}
-                    <a href="{#}" class="btn btn-outline-secondary">Edit Post</a>
+                    <a href="{% url 'posts:update_post' post_id=post.id %}" class="btn btn-outline-secondary">Edit Post</a>
                     <button type="submit" class="btn btn-outline-danger">Delete Post</button>
                   </form>
                 </strong>

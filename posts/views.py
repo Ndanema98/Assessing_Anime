@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Review
 from .forms import PostForm
@@ -52,3 +52,20 @@ def create_post(request):
     return render(request, 'post_form.html', {'form': form})
 
 
+def update_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    form = PostForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+        return redirect('posts:PostList')
+
+    return render(request, 'post_form.html', {'form': form, 'post': post})
+    
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('posts:PostList')
+    return render(request, 'post_delete.html', {'post': post})
