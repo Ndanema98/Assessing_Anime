@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post, Review
+from .forms import PostForm
 
 
 class PostList(generic.ListView):
@@ -38,5 +39,16 @@ def review(request, post_id):
     }
     
     return render(request, 'post_detail.html', context)
+
+
+def create_post(request):
+    form = PostForm(request.POST or None)
+
+    if form.is_valid():
+        form.instance.user = request.user
+        form.save()
+        return redirect('posts:PostList')
+
+    return render(request, 'post_form.html', {'form': form})
 
 
