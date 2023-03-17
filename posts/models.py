@@ -36,6 +36,9 @@ class Review(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80, default="Anonymous")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="anime_reviews",
+    )
     email = models.EmailField(default="example@example.com")
     content = models.TextField()
     date_posted = models.DateField(auto_now_add=True)

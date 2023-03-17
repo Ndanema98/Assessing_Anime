@@ -18,10 +18,9 @@
                 {% endif %}
               </div>
               <h2 class="card-title">{{ post.title }}
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and post.author == request.user %}
                 <strong>
-                  <form class="d-inline" action="{% url 'posts:delete_post' post_id=post.id %}" method="POST">
-                    {% csrf_token %}
+                  <form class="d-inline" action="{% url 'posts:delete_post' post_id=post.id %}" method="GET">
                     <a href="{% url 'posts:update_post' post_id=post.id %}" class="btn btn-outline-secondary">Edit Post</a>
                     <button type="submit" class="btn btn-outline-danger">Delete Post</button>
                   </form>
@@ -37,6 +36,7 @@
               <hr>
               <p class="card-text h6">{{ post.date_posted }}</p>
               <p class="author">Author: {{ post.author }}</p>
+              <a class="nav-link" href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
             </div>
           </div>
         </div>

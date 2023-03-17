@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Review
-from .forms import PostForm
+from .forms import PostForm, ReviewForm
+
 
 
 class PostList(generic.ListView):
@@ -12,28 +13,12 @@ class PostList(generic.ListView):
     paginate_by = 4
 
 
-class PostDetail(View):
-
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        reviews = post.reviews.filter(approved=True).order_by('date_posted')
-
-        return render(
-            request,
-            "post_detail.html",
-            {
-                "post": post,
-            }
-        )
-
-
 def post(request):
     return HttpResponse('Post view')
 
 
 def review(request, post_id):
-    post = Post.objects.get(pk=post_id)
+    post = get_object_or_404(Post, pk=post_id)
     context = {
         'post': post,
     }
@@ -66,7 +51,26 @@ def update_post(request, post_id):
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+
+    # if post.author != request.user:
+    #     # Return with a message
+
+
     if request.method == 'POST':
         post.delete()
         return redirect('posts:PostList')
     return render(request, 'post_delete.html', {'post': post})
+
+
+def create_review(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    reviewform = ReviewForm()  # initialize the reviewform variable before the conditional branch
+    if request.method == 'POST':
+        reviewform = ReviewForm(request.POST)
+        if reviewform.is_valid():
+            review = reviewform.save(commit=False)
+            review.author = request.user
+            review.post = post
+            review.save()
+            return redirect('posts:review', post_id=post_id)
+    return render(request, 'review_form.html', {'reviewform': reviewform, 'post': post})

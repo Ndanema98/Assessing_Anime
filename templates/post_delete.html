@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="Post">
+<form action="{% url 'posts:delete_post' post_id=post.id %}" method="Post">
     {% csrf_token %}
     <h2>Are you sure you want to delete {{ post.title }}</h2>
     <button type="submit">Confirm</button>
