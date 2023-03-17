@@ -24,7 +24,7 @@ class Post(models.Model):
         if not self.slug:
             self.slug = self.title.replace(" ", '-')
         super().save(*args, **kwargs)
-        
+
     class Meta:
         ordering = ["date_posted"]
 
