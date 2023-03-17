@@ -1,8 +1,20 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Post, Review
 from .forms import PostForm, ReviewForm
 
+
+class PostLike(View):
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+
+        if post.upvotes.filter(id=request.user.id).exists():
+            post.upvotes.remove(request.user)
+        else:
+            post.upvotes.add(request.user)
+
+        return HttpResponseRedirect(reverse('posts:review', args=[post.id]))
 
 
 class PostList(generic.ListView):
@@ -47,13 +59,14 @@ def update_post(request, post_id):
         return redirect('posts:PostList')
 
     return render(request, 'post_form.html', {'form': form, 'post': post})
-    
+  
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
-    # if post.author != request.user:
-    #     # Return with a message
+    if post.author != request.user:
+        messages.error(request, "You don't have permission to delete the post")
+        return redirect('posts:PostDetail', post_id=post_id)
 
 
     if request.method == 'POST':
@@ -74,3 +87,6 @@ def create_review(request, post_id):
             review.save()
             return redirect('posts:review', post_id=post_id)
     return render(request, 'review_form.html', {'reviewform': reviewform, 'post': post})
+
+
+

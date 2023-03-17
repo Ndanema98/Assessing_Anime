@@ -17,8 +17,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    upvotes = models.IntegerField(default=0)
-    downvotes = models.IntegerField(default=0)
+    upvotes = models.ManyToManyField(
+        User, related_name='post_like', blank=True)
+    downvotes = models.ManyToManyField(
+        User, related_name='post_dislike', blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -30,6 +32,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.upvotes.count()
 
 
 class Review(models.Model):
