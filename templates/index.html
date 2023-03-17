@@ -29,14 +29,14 @@
               </h2>
               <p class="card-text">{{ post.excerpt }}</p>
               {% if user.is_authenticated %}
-              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">Read More</a>
+              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">See reviews</a>
+              <a href="{% url 'posts:create_review' post_id=post.id %}" class="btn btn-success">Add review</a>
               {% else %}
-              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">Read More</a>
+              <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-success">See reviews</a>
               {% endif %}
               <hr>
               <p class="card-text h6">{{ post.date_posted }}</p>
               <p class="author">Author: {{ post.author }}</p>
-              <a class="nav-link" href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
             </div>
           </div>
         </div>
