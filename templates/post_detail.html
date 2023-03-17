@@ -4,6 +4,11 @@
 
 {% block content %}
   <h1>{{ post.title }}</h1>
+  {% if 'placeholder' in post.image.url %}
+                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                {% else %}
+                <img class="card-img-top" src="{{ post.image.url }}">
+                {% endif %}
   <p>Posted by {{ post.author }} on {{ post.date_posted }}</p>
   <p>{{ post.content }}</p>
   <p>Upvotes: {{ post.upvotes }}</p>
