@@ -3,45 +3,63 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+<div class="detailhead">
+  <div class="container">
+    <div class="row g-0">
+        <div class="col-md-6 detailhead-text">
   <h1>{{ post.title }}</h1>
-  {% if 'placeholder' in post.image.url %}
-                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                {% else %}
-                <img class="card-img-top" src="{{ post.image.url }}">
-                {% endif %}
   <p>Posted by {{ post.author }} on {{ post.date_posted }}</p>
-  <p>{{ post.content }}</p>
-  <div class="col-1">
-    <strong>
-      {% if user.is_authenticated %}
-      <form class="d-inline" action="{% url 'posts:post_like' post.id %}" method="POST">
-        {% csrf_token %}
-        {% if liked %}
-        <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-solid fa-thumbs-up"></i></button>
-        {% else %}
-        <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-regular fa-thumbs-up"></i></button>
-        {% endif %}
-      </form>
-        {% else %}
-        <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
-        {% endif %}
-        <span class="text-secondary">{{ post.number_of_likes }} </span>
+  <div class="card-body">
+    <p class="card-text ">
+      {{ post.excerpt | safe }}
+  </p>
+  <div class="row">
 
-        {% if user.is_authenticated %}
-        <form class="d-inline" action="{% url 'posts:post_dislike' post.id %}" method="POST">
-          {% csrf_token %}
-          {% if liked %}
-          <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-solid fa-thumbs-down"></i></button>
+    <div class="col-1">
+        <strong>
+          {% if user.is_authenticated %}
+<form class="d-inline" action="{% url 'posts:post_like' post.id %}" method="POST">
+  {% csrf_token %}
+  {% if liked %}
+  <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-solid fa-thumbs-up"></i></button>
+  {% else %}
+  <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-regular fa-thumbs-up"></i></button>
+  {% endif %}
+</form>
+  {% else %}
+  <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
+  {% endif %}
+  <span class="text-secondary">{{ post.number_of_likes }} </span>
+
+  {% if user.is_authenticated %}
+  <form class="d-inline" action="{% url 'posts:post_dislike' post.id %}" method="POST">
+    {% csrf_token %}
+    {% if liked %}
+    <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-solid fa-thumbs-down"></i></button>
+    {% else %}
+    <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-regular fa-thumbs-down"></i></button>
+    {% endif %}
+  </form>
+    {% else %}
+    <span class="text-secondary"><i class="fa-regular fa-thumbs-down"></i></span>
+    {% endif %}
+    <span class="text-secondary">{{ post.number_of_dislikes }} </span>
+</strong>
+    </div>
+
+</div>
+  </div>
+        </div>
+        <div class="d-none d-md-block col-md-6 detailhead-image">
+          {% if 'placeholder' in post.image.url %}
+          <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
           {% else %}
-          <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-regular fa-thumbs-down"></i></button>
+          <img class="card-img-top" src="{{ post.image.url }}">
           {% endif %}
-        </form>
-          {% else %}
-          <span class="text-secondary"><i class="fa-regular fa-thumbs-down"></i></span>
-          {% endif %}
-          <span class="text-secondary">{{ post.number_of_dislikes }} </span>
-    </strong>
-  
+        </div>
+    </div>
+  </div>
+</div>
   </div>
   <h2>Reviews:</h2>
   {% for review in post.reviews.all %}

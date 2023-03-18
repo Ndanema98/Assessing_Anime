@@ -102,3 +102,42 @@ form {
     align-items: center;
     height: 100vh;
   }
+
+  .detailhead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.detailhead-text {
+  background-color: #445261;
+  color: white;
+  position: relative;
+}
+
+.detailhead-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.detailhead-image:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 90%;
+  height: 100%;
+  width: 150%;
+  background: #445261;
+  -webkit-transform: skew(15deg);
+  -moz-transform: skew(15deg);
+  transform: skew(15deg);
+  z-index: 100;
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+}
