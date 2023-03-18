@@ -36,6 +36,9 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.upvotes.count()
 
+    def number_of_dislikes(self):
+        return self.downvotes.count()
+
 
 class Review(models.Model):
     post = models.ForeignKey(

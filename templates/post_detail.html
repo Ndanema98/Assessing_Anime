@@ -23,17 +23,26 @@
         {% endif %}
       </form>
         {% else %}
-
         <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
         {% endif %}
         <span class="text-secondary">{{ post.number_of_likes }} </span>
+
+        {% if user.is_authenticated %}
+        <form class="d-inline" action="{% url 'posts:post_dislike' post.id %}" method="POST">
+          {% csrf_token %}
+          {% if liked %}
+          <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-solid fa-thumbs-down"></i></button>
+          {% else %}
+          <button type="submit" name="post_id" value="{{post.slug}}" class="btn-like"><i class="fa-regular fa-thumbs-down"></i></button>
+          {% endif %}
+        </form>
+          {% else %}
+          <span class="text-secondary"><i class="fa-regular fa-thumbs-down"></i></span>
+          {% endif %}
+          <span class="text-secondary">{{ post.number_of_dislikes }} </span>
     </strong>
   
-
-  <p>Downvotes: {{ post.downvotes }}</p>
   </div>
-  <p><a href="{#}">Upvote</a></p>
-  <p><a href="{#}">Downvote</a></p>
   <h2>Reviews:</h2>
   {% for review in post.reviews.all %}
     <div class="review">

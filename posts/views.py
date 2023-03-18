@@ -17,6 +17,18 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('posts:review', args=[post.id]))
 
 
+class PostDislike(View):
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+
+        if post.downvotes.filter(id=request.user.id).exists():
+            post.downvotes.remove(request.user)
+        else:
+            post.downvotes.add(request.user)
+
+        return HttpResponseRedirect(reverse('posts:review', args=[post.id]))
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("date_posted")
@@ -68,7 +80,6 @@ def delete_post(request, post_id):
         messages.error(request, "You don't have permission to delete the post")
         return redirect('posts:PostDetail', post_id=post_id)
 
-
     if request.method == 'POST':
         post.delete()
         return redirect('posts:PostList')
@@ -77,7 +88,7 @@ def delete_post(request, post_id):
 
 def create_review(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    reviewform = ReviewForm()  # initialize the reviewform variable before the conditional branch
+    reviewform = ReviewForm()
     if request.method == 'POST':
         reviewform = ReviewForm(request.POST)
         if reviewform.is_valid():
