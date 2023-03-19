@@ -30,7 +30,6 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - to delete and edit a review so that if my mind is changed I can update accordingly.
    - to create reviews so that other users can benefit from my advice.
 
-
    ### Developer's Goals.
    As the developer I want:
    - to approve or disapprove posts so that I can filter out incorrect posts.
