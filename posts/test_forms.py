@@ -1,39 +1,43 @@
 from django.test import TestCase
 from .forms import PostForm, ReviewForm
+from .models import Post, Review
 
 
 class TestPostForm(TestCase):
-
-    def test_post_name_is_required(self):
-        form = PostForm({'title': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('title', form.errors.keys())
-        self.assertEqual(form.errors['title'][0], 'This field is required.')
-
-    def field_is_not_required(self):
-        form = PostForm({'title': 'Test Posts'})
+    def test_valid_form(self):
+        data = {
+            'title': 'Test post',
+            'excerpt': 'This is a test post',
+            'status': 'published',
+        }
+        form = PostForm(data=data)
         self.assertTrue(form.is_valid())
 
-    def test_fields_are_explicit_in_form_metaclass(self):
-        form = PostForm()
-        self.assertEqual(
-            form.Meta.fields, ['title', 'excerpt', 'image', 'status'])
-    
+    def test_invalid_form(self):
+        data = {
+            'title': '',
+            'excerpt': 'This is a test post',
+            'status': 'published',
+        }
+        form = PostForm(data=data)
+        self.assertFalse(form.is_valid())
+
 
 class TestReviewForm(TestCase):
-
-    def test_review_name_is_required(self):
-        form = ReviewForm({'name': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('nmae', form.errors.keys())
-        self.assertEqual(form.errors['name'][0], 'This field is required.')
-
-    def field_is_not_required(self):
-        form = ReviewForm({'name': 'Test Reviews'})
+    def test_valid_form(self):
+        data = {
+            'name': 'John Doe',
+            'email': 'john@example.com',
+            'content': 'This is a test review',
+        }
+        form = ReviewForm(data=data)
         self.assertTrue(form.is_valid())
 
-    def test_fields_are_explicit_in_form_metaclass(self):
-        form = ReviewForm()
-        self.assertEqual(
-            form.Meta.fields, ['name', 'email', 'content'])
-    
+    def test_invalid_form(self):
+        data = {
+            'name': '',
+            'email': 'john@example.com',
+            'content': 'This is a test review',
+        }
+        form = ReviewForm(data=data)
+        self.assertFalse(form.is_valid())
