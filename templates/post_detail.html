@@ -15,7 +15,7 @@
   </p>
   <div class="row">
 
-    <div class="col-1">
+    <div>
         <strong>
           {% if user.is_authenticated %}
 <form class="d-inline" action="{% url 'posts:post_like' post.id %}" method="POST">
@@ -52,15 +52,16 @@
         </div>
         <div class="d-none d-md-block col-md-6 detailhead-image">
           {% if 'placeholder' in post.image.url %}
-          <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
           {% else %}
-          <img class="card-img-top" src="{{ post.image.url }}">
+          <img src="{{ post.image.url }}">
           {% endif %}
         </div>
     </div>
   </div>
 </div>
   </div>
+  <hr>
   <h2>Reviews:</h2>
   {% for review in post.reviews.all %}
     <div class="review">

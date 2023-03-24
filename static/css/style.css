@@ -1,120 +1,119 @@
 /* Global Styles */
 body {
-    
-  background-color: #f7f7f7;
-  color: #333;
+  background-color: #333;
+  color: #fff;
   margin: 0;
-  }
-  
+}
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
+  max-width: 800px;
+  padding: 20px;
+}
+
 .header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
 
 h1, h2, h3 {
-    margin-top: 0;
-  }
-  
+  margin-top: 0;
+}
+
 a {
-    color: #0066cc;
-    text-decoration: none;
-  }
-  
+  color: #66c2ff;
+  text-decoration: none;
+}
+
 a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Styles for Index Page */
+  text-decoration: underline;
+}
+
+/* Styles for Index Page */
 .post {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-  }
-  
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #444;
+  border: 1px solid #333;
+}
+
 .post-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
 .post-meta {
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-  
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
 .post-content {
-    margin-bottom: 10px;
-  }
-  
+  margin-bottom: 10px;
+}
+
 .post-actions {
-    margin-top: 10px;
-  }
-  
+  margin-top: 10px;
+}
+
 .upvote, .downvote {
-    margin-right: 10px;
-  }
-  
-  /* Styles for Post Detail Page */
+  margin-right: 10px;
+}
+
+/* Styles for Post Detail Page */
 .review {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-  }
-  
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #444;
+  border: 1px solid #333;
+}
+
 .review-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 .review-meta {
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-  
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
 .review-content {
-    margin-bottom: 10px;
-  }
-  
+  margin-bottom: 10px;
+}
+
 form {
-    display: block;
-    margin: 0 auto;
-    max-width: 30rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-  }
+  display: block;
+  margin: 0 auto;
+  max-width: 30rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  background-color: #444;
+  color: #fff;
+}
 
-  .center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  .detailhead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
+.detailhead {
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 33vh;
+  width: 100%;
 }
 
 .detailhead-text {
-  background-color: #445261;
-  color: white;
+  background-color: #222;
+  color: #fff;
   position: relative;
 }
 
@@ -130,7 +129,7 @@ form {
   right: 90%;
   height: 100%;
   width: 150%;
-  background: #445261;
+  background: #222;
   -webkit-transform: skew(15deg);
   -moz-transform: skew(15deg);
   transform: skew(15deg);
@@ -140,4 +139,26 @@ form {
 .card {
   border: none;
   background-color: transparent;
+}
+
+button {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button, input[type="submit"] {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #aaa;
 }
