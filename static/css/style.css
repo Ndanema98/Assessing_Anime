@@ -107,7 +107,7 @@ form {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  height: 33vh;
+  /* height: 33vh; */
   width: 100%;
 }
 
