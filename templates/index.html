@@ -30,14 +30,14 @@
               <p class="card-text">{{ post.excerpt }}</p>
               {% if user.is_authenticated %}
               <button>
-                <a href="{% url 'posts:review' post_id=post.id %}">See reviews</a>
+                <a href="{% url 'posts:review' post_id=post.id %}">See reviews/Add Likes</a>
               </button>
               <button>
               <a href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
               </button>
               {% else %}
               <button>
-                <a href="{% url 'posts:review' post_id=post.id %}">See reviews</a>
+                <a href="{% url 'posts:review' post_id=post.id %}">See reviews/Add Likes</a>
               </button>
               {% endif %}
               <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>

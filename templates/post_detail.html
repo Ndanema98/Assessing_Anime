@@ -77,9 +77,11 @@
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Submit</button>
+      <button>
+        <a href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
+        </button>
     </form>
   {% else %}
-    <p><a href="#">Log in</a> to add a review.</p>
+    <p><a href="{% url 'account_login' %}" class="a">Log in</a> to add a review/Leave a like.</p>
   {% endif %}
 {% endblock %}

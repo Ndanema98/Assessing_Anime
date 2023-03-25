@@ -27,6 +27,11 @@ a {
   text-decoration: none;
 }
 
+.a {
+  color: #fff;
+  
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -104,7 +109,6 @@ form {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  /* height: 33vh; */
   width: 100%;
 }
 
