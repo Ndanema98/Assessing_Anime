@@ -52,9 +52,9 @@
         </div>
         <div class="d-none d-md-block col-md-6 detailhead-image">
           {% if 'placeholder' in post.image.url %}
-          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" class="full-width">
           {% else %}
-          <img src="{{ post.image.url }}">
+          <img src="{{ post.image.url }}" class="full-width">
           {% endif %}
         </div>
     </div>
