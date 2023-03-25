@@ -36,7 +36,9 @@
               <a href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
               </button>
               {% else %}
-              
+              <button>
+                <a href="{% url 'posts:review' post_id=post.id %}">See reviews</a>
+              </button>
               {% endif %}
               <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
               <span class="text-secondary">{{ post.number_of_likes }} </span>
