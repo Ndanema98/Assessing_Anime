@@ -1,12 +1,11 @@
 # Milestone project 4
 # Assessing Anime
 
-["Assessing Anime"]() is a website designed for people to add descriptions, give their opinions and read reviews on anime that they have watched. 
+["Assessing Anime"](https://assessing--anime.herokuapp.com/) is a website designed for people to add descriptions, give their opinions and read reviews on anime that they have watched. 
 
 This website was targeted at people who want to gain more information on anime they want to watch and get other peoples views and ratings on that. There will be a description section which is going to allow further details of any anime to be published. There will also be a review section which would allow people to log on and add their opinions and scores on different anime they have watched. This in turn will encourage more people to watch more anime. 
 Reviews have been shown to greatly help when it comes to improving customer loyalty and customer service as they feel they have a voice through active engagement. Also reviews allow for better credibility with suggestions as there is social proof.
 This website was built using knowledge gained from HTML, CSS, JavaScript, Python and Django modules, for the purpose of completing my fourth Milestone Project for the Code Institute's full stack developer course. This website is easy to navigate and easy to read, with a clear goal and aim.
-
 
  # User Experience/User Interface (UX/UI)
 
@@ -39,22 +38,11 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - to provide an interactive and eye-catching website so that users are encouraged to revisit.
  
  - ## Design 
+   ### Data Model
+   - The data model for my project consists of three models, which are User, Post and Review. The User model is imported from the django.contrib.auth.models module. The Post model has several fields including title, slug, description, author, image, status, excerpt, date_posted, upvotes, and downvotes. Additionally, there is a Review model with fields post, name, author, email, content, date_posted, and approved. 
+
    ### Colour Scheme
-   - During the construction of my website I experimented with many different colours and decided to settle on using . I decided to stick to only these two colours in order to make my website more visually appealing. 
-
-   - 
-   
-   - 
-
-   - 
-
-   - 
-
-   - 
-
-   - 
-   ### Typography
-   - 
+   - During the construction of my website I experimented with many different colours and decided to settle on using black and grey. I decided to stick to only these two colours in order to make my website more visually appealing and easily readable. Also i kept most of the text as white so it could stand out amongst the dark colours. 
 
    ### Wireframes
    ![A screenshot of my wireframe 1]()
