@@ -44,15 +44,9 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    ### Colour Scheme
    - During the construction of my website I experimented with many different colours and decided to settle on using black and grey. I decided to stick to only these two colours in order to make my website more visually appealing and easily readable. Also i kept most of the text as white so it could stand out amongst the dark colours. 
 
-   ### Wireframes
-   ![A screenshot of my wireframe 1]()
-
-   ![A screenshot of my wireframe 2]()
-
  # Features
  - ## Responsive Website
    
-
    - This website changes it's layout to best display the content depending on the screen size. This allows the user to use the website on various different devices. 
 
  - ## 

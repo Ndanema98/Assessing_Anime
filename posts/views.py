@@ -66,14 +66,18 @@ def create_post(request):
 
 
 def update_post(request, post_id):
-    post = Post.objects.get(pk=post_id)
+    post = get_object_or_404(Post, pk=post_id)
+    if post.author != request.user:
+        return HttpResponseRedirect(reverse('posts:PostList'))
     form = PostForm(request.POST or None, instance=post)
-
     if form.is_valid():
         form.save()
-        return redirect('posts:PostList')
-
-    return render(request, 'post_form.html', {'form': form, 'post': post})
+        return HttpResponseRedirect(reverse('posts:PostList'))
+    context = {
+        'form': form,
+        'post': post
+    }
+    return render(request, 'post_form.html', context)
   
 
 def delete_post(request, post_id):
