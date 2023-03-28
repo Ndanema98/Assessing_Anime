@@ -51,10 +51,16 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - This website changes it's layout to best display the content depending on the screen size. This allows the user to use the website on various different devices. 
 
  - ## NavBar 
+    - ###  Logged Out User
    ![A screenshot of my Navigation bar(logged out)](/static/images/navbar-1.png)
+
+    - This shows my navigation bar when a user is not logged in. They can either click on home or the website name which would redirect them back to the homepage. The user also has an option of clicking on register which would allow them to create a new account or log in which would allow them to access their existing accounts. 
+
+    - ### Logged In User
    ![A screenshot of my Navigation bar(logged in)](/static/images/navbar-2.png)
 
-    - 
+    - This shows my navigation bar when a user is logged in. They can either click on home or the website name which would redirect them back to the homepage. The user also has an option of clicking on add anime which would allow them to create a new anime post or log out which would allow them to log out of their accounts. 
+
  - ## HomePage 
    ![A screenshot of my HomePage 1](/static/images/mainpage-1.png)
    ![A screenshot of my HomePage 2](/static/images/mainpage-2.png)
@@ -106,17 +112,85 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
 
 
  # Possible Future Features
-   -  
-   - 
-   - 
+   -  Add an Edit and Delete function for my reviews 
+   -  When the Like button is selected it goes green and vice versa for the dislike button 
+   -  When adding a review automatically populate the name and email field with the user who is logged on details. 
     
  # Testing 
+ - ## Automated 
+  - I have created some python files which automatically test my models.py, my forms.py and my views.py. 
+
  - ## Manual 
    - This website has been tested using three different browsers (Google Chrome, Firefox, Safari) and I can confirm that it works. 
    - This website has been tested with all the standard screen sizes and I can confirm that it is responsive. 
-   - 
-   - 
-   - 
+
+### Navigation Bar
+All Pages:
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Home page | When clicking on the "Home" button on the nav bar, the browser redirects to the home page. | PASS
+Booking Page | When clicking on the Add Anime button on the nav bar, the browswer redirects to the add posts page | PASS
+Loging/ Log Out Pages | When clicking on the log in or log out button the page redirects to the log in page or logs the user out | PASS
+Register Page | When clicking on the register button it redirects to the register page. | PASS
+Foreground and background | Checked foreground and background information is clearly legible | PASS
+Text | Checked the text is clearly legible against the background | PASS
+
+### Home Page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Responsiveness | Checked elements for consistant scaleability | PASS
+Accessibility | Checked the accessibility of the page using lighthouse | PASS
+
+### Add Anime page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Responsiveness | Checked elements for consistant scaleability | PASS
+Save button | When clicking the Save button on the page, the form in inputted into the database and the browser redirects to the home page. | PASS
+Add anime Form | Checked the form submits only when all required fields are filled out. | PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+
+### Add Review page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Responsiveness | Checked elements for consistant scaleability | PASS
+Save button | When clicking the Save button on the page, the form in inputted into the database and the browser redirects to the review page. | PASS
+Add Review Form | Checked the form submits only when all required fields are filled out. | PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+
+### Edit Anime page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Media | All media assets are displayed properly, have no pixelation or stretched images and is responsive on all devices. | PASS
+Responsiveness | Check every element on-page for consistent scalability in mobile, tablet and desktop view.| PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+Edit Anime Form | Checked the form submits only when all required fields are filled out. | PASS
+Logged in user | Checked the form can only be edited by the user who created the post. | PASS
+
+### Delete Anime page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Responsiveness | Check every element on-page for consistent scalability in mobile, tablet and desktop view.| PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+Delete Anime Form | Checked the form is succesfully deleted | PASS
+Logged in user | Checked the form can only be deleted by the user who created the post. | PASS
+
+### Register page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Media | All media assets are displayed properly, have no pixelation or stretched images and is responsive on all devices. | PASS
+Responsiveness | Check every element on-page for consistent scalability in mobile, tablet and desktop view.| PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+Register form | Checked the form submits only when all required fields are filled out. | PASS
+Sign in link | Checked the sign-in link redirects to the sign-in page. | PASS
+
+### Sign in Page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Media | All media assets are displayed properly, have no pixelation or stretched images and is responsive on all devices. | PASS
+Responsiveness | Check every element on-page for consistent scalability in mobile, tablet and desktop view.| PASS
+Accessibility | Checked the accessibility of the page using lighthouse| PASS
+Sign in form | Checked the form submits only when all required fields are filled out. | PASS
+Signup link | Checked the signup link redirects to the signup page. | PASS
 
  - ## Validator 
    - ### HTML
@@ -170,28 +244,18 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - W3C Validator 
      - Allowed me to validate my HTML and CSS code against industry standard. 
    - JSHint 
-     - Allowed me to validate my Javascript code against industry standard. 
+     - Allowed me to validate my Javascript code against industry standard.
 
  # Deployment
-  - ## Remote 
-   1. Click on the settings icon in the navigation bar.
-   2. Scoll until Github pages is visable.
-   3. Once clicked change the branch to "main" and change the directory to "root". 
-   4. Next, click the save button. 
-   5. It may take a few moments for the website to publish but once its done, a link to the live website will be provided. 
+  - This code was deployed using Code Institute's mock terminal for Heroku. 
 
-  - ## Forking
+  - ## Steps for deployment:
    1. In the top right corner of the page click on the fork button. 
-   2. The next page will show a forked version of my project. 
-
-  - ## Cloning a repository
-   1. Fork the repository using the steps above. 
-   2. Next click code 
-   3. You will then be asked if you want to clone using HTTPS, SSH or Github CLI
-   4. Click the copy button
-   5. Open Git bash and select the directory you want the clone to go to
-   6. Type git clone and then paste the URL. 
-   7. Lastly press enter and your clone will be created. 
+   2. The next page will show a forked version of my project.
+   3. Create a new Heroku app.
+   4. Set the buildbacks to Python and NodeJS in that order.
+   5. Link the Heroku app to the repository. 
+   6. Click on deploy. 
 
  # Credits
  - ## Images
@@ -202,14 +266,8 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
 
  - ## Code
    
-   - 
+   - The code for my structure was taken from the [Hello Django Walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/121ef050096f4546a1c74327a9113ea6/?child=first) and the [I think therefore I blog Walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/)
     
-   - 
-
-   - 
-
-   - 
-
  # Acknowledgement 
     - The online tutors that Code Institute provides. 
     - My mentor Ben Kav for helping me when I was stuck. 
