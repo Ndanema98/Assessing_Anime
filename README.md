@@ -46,29 +46,66 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
 
  # Features
  - ## Responsive Website
-   
+   ![A screenshot of my responsive design](/static/images/responsive-design.png)
+
    - This website changes it's layout to best display the content depending on the screen size. This allows the user to use the website on various different devices. 
 
- - ## 
+ - ## NavBar 
+   ![A screenshot of my Navigation bar(logged out)](/static/images/navbar-1.png)
+   ![A screenshot of my Navigation bar(logged in)](/static/images/navbar-2.png)
 
- - ## 
-  
+    - 
+ - ## HomePage 
+   ![A screenshot of my HomePage 1](/static/images/mainpage-1.png)
+   ![A screenshot of my HomePage 2](/static/images/mainpage-2.png)
+   ![A screenshot of my HomePage 3](/static/images/mainpage-3.png)
+   ![A screenshot of my HomePage 4](/static/images/mainpage-4.png)
 
- - ## 
+   - 
+
+ - ## PostDetail 
+   ![A screenshot of my of post detail](/static/images/postdetail.png)
+
+   - 
    
 
- - ## 
-    
+ - ## Reviews
+   ![A screenshot of my reviews 1](/static/images/reviews-1.png)
+   ![A screenshot of my reviews 2](/static/images/reviews-2.png)
 
- - ## 
-    
+   - 
 
- - ## 
-    
- 
- - ## 
 
- - ## Possible Future Features
+ - ## New Anime Post
+   ![A screenshot of my add anime post](/static/images/addpost.png)
+
+   - 
+   
+
+ - ## Buttons 
+   ![A screenshot of my see reviews/add likes button](/static/images/buttons-1.png)
+   ![A screenshot of my add reviews button](/static/images/buttons-2.png)
+   ![A screenshot of my edit button](/static/images/buttons-3.png)
+   ![A screenshot of my delete button](/static/images/buttons-4.png)
+   ![A screenshot of my pagination button](/static/images/buttons-5.png)
+   ![A screenshot of my like and dislike buttons](/static/images/buttons-6.png)
+
+
+ - ## UserInterface
+   ![A screenshot of my sign in page](/static/images/userinterface-1.png)
+   ![A screenshot of my sign up page](/static/images/userinterface-2.png)
+   ![A screenshot of my sign out page](/static/images/userinterface-3.png)
+   
+
+ - ## Banner
+   ![A screenshot of my banner](/static/images/banner.png)
+   
+
+ - ## Footer
+   ![A screenshot of my footer](/static/images/footer.png)
+
+
+ # Possible Future Features
    -  
    - 
    - 
@@ -94,6 +131,8 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
       
 
   - ## Accessibility 
+    ![A screenshot of my lighthouse score](/static/images/lighthouse.png)
+    
     - The Lighthouse function in devtools was used to see if the font and the font colours used were easy to read and access. I can confirm that the page on my website passed. 
     
 
@@ -159,7 +198,10 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
 
  # Credits
  - ## Images
-   - 
+   - All of the images used were found on ["Wikipedia"](https://en.wikipedia.org/wiki/Main_Page)
+
+ - ## Information 
+   - All of the information used were found on ["Wikipedia"](https://en.wikipedia.org/wiki/Main_Page)
 
  - ## Code
    
@@ -171,8 +213,6 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
 
    - 
 
- - ## Information 
-   - 
  # Acknowledgement 
     - The online tutors that Code Institute provides. 
     - My mentor Ben Kav for helping me when I was stuck. 

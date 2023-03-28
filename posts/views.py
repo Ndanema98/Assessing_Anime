@@ -49,7 +49,7 @@ def review(request, post_id):
     context = {
         'post': post,
     }
-    
+
     return render(request, 'post_detail.html', context)
 
 
@@ -78,7 +78,7 @@ def update_post(request, post_id):
         'post': post
     }
     return render(request, 'post_form.html', context)
-  
+
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -104,4 +104,5 @@ def create_review(request, post_id):
             review.post = post
             review.save()
             return redirect('posts:review', post_id=post_id)
-    return render(request, 'review_form.html', {'reviewform': reviewform, 'post': post})
+    return render(
+        request, 'review_form.html', {'reviewform': reviewform, 'post': post})
