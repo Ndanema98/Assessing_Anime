@@ -245,22 +245,6 @@ Signup link | Checked the signup link redirects to the signup page. | PASS
     ![A screenshot of my lighthouse score](/static/images/lighthouse.png)
 
     - The Lighthouse function in devtools was used to see if the font and the font colours used were easy to read and access. I can confirm that the page on my website passed. 
-    
-  
-- ## Bugs 
-   - ### Solved 
-     - #### 
-    
-
-     - #### 
-
-     - #### 
-
-     - #### 
-
-     - #### 
-
-     - #### 
       
  # Languages used 
    - HTML
