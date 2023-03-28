@@ -51,64 +51,103 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - This website changes it's layout to best display the content depending on the screen size. This allows the user to use the website on various different devices. 
 
  - ## NavBar 
-    - ###  Logged Out User
+  - ###  Logged Out User
    ![A screenshot of my Navigation bar(logged out)](/static/images/navbar-1.png)
 
     - This shows my navigation bar when a user is not logged in. They can either click on home or the website name which would redirect them back to the homepage. The user also has an option of clicking on register which would allow them to create a new account or log in which would allow them to access their existing accounts. 
 
-    - ### Logged In User
+  - ### Logged In User
    ![A screenshot of my Navigation bar(logged in)](/static/images/navbar-2.png)
 
     - This shows my navigation bar when a user is logged in. They can either click on home or the website name which would redirect them back to the homepage. The user also has an option of clicking on add anime which would allow them to create a new anime post or log out which would allow them to log out of their accounts. 
 
  - ## HomePage 
+  - Anime Post content
+
    ![A screenshot of my HomePage 1](/static/images/mainpage-1.png)
    ![A screenshot of my HomePage 2](/static/images/mainpage-2.png)
+
+    - This shows the Anime post pictures and descriptions so users can gain futher information on the anime. 
+  
+  - ### User Details and time of posting 
+
    ![A screenshot of my HomePage 3](/static/images/mainpage-3.png)
+
+   - This shows the details of the user whoo created the post and the date and time that the post was posted. 
+
    ![A screenshot of my HomePage 4](/static/images/mainpage-4.png)
 
-   - 
+   - This shows the ammount of likes and dislikes a post has. 
 
  - ## PostDetail 
    ![A screenshot of my of post detail](/static/images/postdetail.png)
 
-   - 
+   - This shows the view of when an indivdual post is selected. 
    
-
  - ## Reviews
+  - ### Add Reviews
    ![A screenshot of my reviews 1](/static/images/reviews-1.png)
+
+   - This shows the form in which users can input their details to add a review. 
+
+  - ### View Reviews 
    ![A screenshot of my reviews 2](/static/images/reviews-2.png)
 
-   - 
-
+   - This shows the reviews for a specific post which has been added. 
 
  - ## New Anime Post
    ![A screenshot of my add anime post](/static/images/addpost.png)
 
-   - 
+   - This shows the form in which users can input their details to add an anime post. 
    
 
  - ## Buttons 
+  - ### See reviews/add likes button
    ![A screenshot of my see reviews/add likes button](/static/images/buttons-1.png)
-   ![A screenshot of my add reviews button](/static/images/buttons-2.png)
-   ![A screenshot of my edit button](/static/images/buttons-3.png)
-   ![A screenshot of my delete button](/static/images/buttons-4.png)
-   ![A screenshot of my pagination button](/static/images/buttons-5.png)
-   ![A screenshot of my like and dislike buttons](/static/images/buttons-6.png)
+   - This button when clicked takes me to my review page in which you can see the reviews or then go on to add a like or dislike. 
 
+  - ### Add reviews button
+   ![A screenshot of my add reviews button](/static/images/buttons-2.png)
+   - This button when clicked takes me to my add reviews page in which you can create a new review.
+
+  - ### Edit button
+   ![A screenshot of my edit button](/static/images/buttons-3.png)
+   - This button when clicked takes me to my edit post page in which a user can edit a post that they have previously created. 
+
+  - ### Delete button
+   ![A screenshot of my delete button](/static/images/buttons-4.png)
+   - This button when clicked takes me to my delete post page in which a user can delete a post that they have previously created. 
+
+  - ### Pagination button
+   ![A screenshot of my pagination button](/static/images/buttons-5.png)
+   - This button when clicked takes me to my next page in which a user can view other posts as there are only three per page. 
+
+  - ### Like and dislike buttons
+   ![A screenshot of my like and dislike buttons](/static/images/buttons-6.png)
+   - These buttons when clicked can either like or dislike a post. Both buttons are not able to be pressed at the same time. 
 
  - ## UserInterface
+  - ### Sign in Page
    ![A screenshot of my sign in page](/static/images/userinterface-1.png)
+   - This shows the form used for a user to sign into their account 
+
+  - ### Sign up Page
    ![A screenshot of my sign up page](/static/images/userinterface-2.png)
+   - This shows the form used for a user to sign up for a new account 
+
+  - ### Sign out Page
    ![A screenshot of my sign out page](/static/images/userinterface-3.png)
+   - This shows the form used for a user to sign out of their accounts.
    
 
  - ## Banner
    ![A screenshot of my banner](/static/images/banner.png)
+   - This shows the banner provided whenever a user signs in or out of their accounts.
    
 
  - ## Footer
    ![A screenshot of my footer](/static/images/footer.png)
+   - This shows the footer elements which users can click on to take them to social media accounts, if they wanted to learn more about the website. 
 
 
  # Possible Future Features

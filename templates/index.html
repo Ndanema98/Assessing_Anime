@@ -29,16 +29,20 @@
               </h2>
               <p class="card-text">{{ post.excerpt }}</p>
               {% if user.is_authenticated %}
-              <button>
-                <a href="{% url 'posts:review' post_id=post.id %}">See reviews/Add Likes</a>
-              </button>
-              <button>
-              <a href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
-              </button>
+                <a href="{% url 'posts:review' post_id=post.id %}">
+                  <button class="ab"> See reviews/Add Likes
+                  </button>
+                  </a>
+              <a href="{% url 'posts:create_review' post_id=post.id %}"> 
+                <button class="ab">Add review
+                </button>
+                </a>
               {% else %}
-              <button>
-                <a href="{% url 'posts:review' post_id=post.id %}">See reviews/Add Likes</a>
-              </button>
+                <a href="{% url 'posts:review' post_id=post.id %}">
+                  <button class="ab">
+                  See reviews/Add Likes
+                  </button>
+                </a>
               {% endif %}
               <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
               <span class="text-secondary">{{ post.number_of_likes }} </span>
