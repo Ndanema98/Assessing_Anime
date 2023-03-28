@@ -122,20 +122,17 @@ This website was built using knowledge gained from HTML, CSS, JavaScript, Python
    - ### HTML
      - The official W3C validator was used to validate my HTML. No errors were found when my code was input.
      
-
    - ### CSS 
      - The official W3C validator (Jigsaw) was used to validate my CSS. No errors were found when my code was input.
      
    - ### Javascript
      - The Javascript file was validated using JSHint and no errors were found. The New JavaScript features (ES6) option was ticked in the Configure menu.
       
-
   - ## Accessibility 
     ![A screenshot of my lighthouse score](/static/images/lighthouse.png)
-    
+
     - The Lighthouse function in devtools was used to see if the font and the font colours used were easy to read and access. I can confirm that the page on my website passed. 
     
-
   
 - ## Bugs 
    - ### Solved 
