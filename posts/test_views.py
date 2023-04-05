@@ -9,7 +9,8 @@ class TestViews(TestCase):
 
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass')
         self.post = Post.objects.create(
             title='Test Post',
             content='Test Content',
@@ -44,19 +45,23 @@ class TestViews(TestCase):
     def test_create_review_POST(self):
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.post(reverse('posts:create_review', args=[self.post.id]), {
+        response = self.client.post(reverse(
+            'posts:create_review', args=[self.post.id]), {
             'title': 'New Test Review',
             'content': 'New Test Content',
             'rating': 4,
         })
 
-        self.assertRedirects(response, reverse('posts:review', args=[self.post.id]))
-        self.assertTrue(Review.objects.filter(title='New Test Review').exists())
+        self.assertRedirects(response, reverse(
+            'posts:review', args=[self.post.id]))
+        self.assertTrue(Review.objects.filter(
+            title='New Test Review').exists())
 
     def test_update_post_POST(self):
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.post(reverse('posts:update_post', args=[self.post.id]), {
+        response = self.client.post(reverse(
+            'posts:update_post', args=[self.post.id]), {
             'title': 'Updated Test Post',
             'content': 'Updated Test Content',
         })
@@ -69,7 +74,8 @@ class TestViews(TestCase):
     def test_delete_post_POST(self):
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.post(reverse('posts:delete_post', args=[self.post.id]))
+        response = self.client.post(reverse(
+            'posts:delete_post', args=[self.post.id]))
 
         self.assertRedirects(response, reverse('posts:PostList'))
         self.assertFalse(Post.objects.filter(title='Test Post').exists())
@@ -77,17 +83,21 @@ class TestViews(TestCase):
     def test_PostLike_POST(self):
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.post(reverse('posts:PostLike', args=[self.post.id]))
+        response = self.client.post(reverse(
+            'posts:PostLike', args=[self.post.id]))
 
-        self.assertRedirects(response, reverse('posts:review', args=[self.post.id]))
+        self.assertRedirects(response, reverse(
+            'posts:review', args=[self.post.id]))
         self.assertEquals(self.post.upvotes.count(), 1)
         self.assertTrue(self.post.upvotes.filter(id=self.user.id).exists())
 
     def test_PostDislike_POST(self):
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.post(reverse('posts:PostDislike', args=[self.post.id]))
+        response = self.client.post(reverse(
+            'posts:PostDislike', args=[self.post.id]))
 
-        self.assertRedirects(response, reverse('posts:review', args=[self.post.id]))
+        self.assertRedirects(response, reverse(
+            'posts:review', args=[self.post.id]))
         self.assertEquals(self.post.downvotes.count(), 1)
         self.assertTrue(self.post.downvotes.filter(id=self.user.id).exists())

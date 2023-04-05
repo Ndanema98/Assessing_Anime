@@ -16,7 +16,6 @@
   <div class="row">
 
     <div>
-        <strong>
           {% if user.is_authenticated %}
 <form class="d-inline" action="{% url 'posts:post_like' post.id %}" method="POST">
   {% csrf_token %}
@@ -44,7 +43,6 @@
     <span class="text-secondary"><i class="fa-regular fa-thumbs-down"></i></span>
     {% endif %}
     <span class="text-secondary">{{ post.number_of_dislikes }} </span>
-</strong>
     </div>
 
 </div>
@@ -52,20 +50,18 @@
         </div>
         <div class="d-none d-md-block col-md-6 detailhead-image">
           {% if 'placeholder' in post.image.url %}
-          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" class="full-width">
+          <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="default image" class="full-width">
           {% else %}
-          <img src="{{ post.image.url }}" class="full-width">
+          <img src="{{ post.image.url }}" alt="anime image" class="full-width">
           {% endif %}
         </div>
     </div>
   </div>
 </div>
-  </div>
   <hr>
   <h2>Reviews:</h2>
   {% for review in post.reviews.all %}
     <div class="review">
-      <h3>{{ review.title }}</h3>
       <p>Posted by {{ review.author }} on {{ review.date_posted }}</p>
       <p>{{ review.content }}</p>
     </div>
@@ -77,9 +73,7 @@
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button>
-        <a href="{% url 'posts:create_review' post_id=post.id %}">Add review</a>
-        </button>
+        <a href="{% url 'posts:create_review' post_id=post.id %}" class="btn btn-secondary btn-lg-active" role="button">Add review</a>
     </form>
   {% else %}
     <p><a href="{% url 'account_login' %}" class="a">Log in</a> to add a review/Leave a like.</p>

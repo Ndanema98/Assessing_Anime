@@ -14,34 +14,29 @@
                 {% if 'placeholder' in post.image.url %}
                 <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="default image">
                 {% else %}
-                <img class="card-img-top" src="{{ post.image.url }}">
+                <img class="card-img-top" src="{{ post.image.url }}" alt="anime image">
                 {% endif %}
               </div>
               <h2 class="card-title">{{ post.title }}
+              </h2>
                 {% if user.is_authenticated and post.author == request.user %}
-                <strong>
                   <form class="d-inline" action="{% url 'posts:delete_post' post_id=post.id %}" method="GET">
                     <a href="{% url 'posts:update_post' post_id=post.id %}" class="btn btn-outline-secondary">Edit Post</a>
                     <button type="submit" class="btn btn-outline-danger">Delete Post</button>
                   </form>
-                </strong>
                 {% endif %}
-              </h2>
+              
               <p class="card-text">{{ post.excerpt }}</p>
               {% if user.is_authenticated %}
-                <a href="{% url 'posts:review' post_id=post.id %}">
-                  <button> See reviews/Add Likes
-                  </button>
-                  </a>
-              <a href="{% url 'posts:create_review' post_id=post.id %}"> 
-                <button>Add review
-                </button>
+                <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-secondary btn-lg-active" role="button">
+                   See reviews/Add Likes
                 </a>
+              <a href="{% url 'posts:create_review' post_id=post.id %}" class="btn btn-secondary btn-lg-active" role="button"> 
+                Add review
+              </a>
               {% else %}
-                <a href="{% url 'posts:review' post_id=post.id %}">
-                  <button>
+                <a href="{% url 'posts:review' post_id=post.id %}" class="btn btn-secondary btn-lg-active" role="button">
                   See reviews/Add Likes
-                  </button>
                 </a>
               {% endif %}
               <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>

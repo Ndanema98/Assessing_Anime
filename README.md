@@ -233,13 +233,16 @@ Signup link | Checked the signup link redirects to the signup page. | PASS
 
  - ## Validator 
    - ### HTML
-     - The official W3C validator was used to validate my HTML. No errors were found when my code was input.
+     - The official ["W3C validator"](https://validator.w3.org/) was used to validate my HTML. The only error found was on the add anime page. When this was put through the validator it showed this error: ![A screenshot of my error 1 ](/static/images/error1.png)
      
    - ### CSS 
-     - The official W3C validator (Jigsaw) was used to validate my CSS. No errors were found when my code was input.
+     - The official ["W3C validator (Jigsaw)"](https://jigsaw.w3.org/css-validator/) was used to validate my CSS. No errors were found when my code was input.
      
    - ### Javascript
-     - The Javascript file was validated using JSHint and no errors were found. The New JavaScript features (ES6) option was ticked in the Configure menu.
+     - The Javascript file was validated using ["JSHint"](https://jshint.com/) and no errors were found. The New JavaScript features (ES6) option was ticked in the Configure menu.
+   
+   - ### Python
+     - The Python Code was validated using a ["Pep8 python checker"](https://pep8ci.herokuapp.com/#) from code institute and no errors were returned. 
       
   - ## Accessibility 
     ![A screenshot of my lighthouse score](/static/images/lighthouse.png)
@@ -250,6 +253,7 @@ Signup link | Checked the signup link redirects to the signup page. | PASS
    - HTML
    - CSS
    - Javascript
+   - Python
 
  # Technologies Used 
    - Git 

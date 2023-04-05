@@ -8,7 +8,9 @@ class PostModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         author = User.objects.create(username='testuser')
-        Post.objects.create(title='Test Post', slug='test-post', description='This is a test post', author=author)
+        Post.objects.create(
+            title='Test Post', slug='test-post',
+            description='This is a test post', author=author)
 
     def test_title_max_length(self):
         post = Post.objects.get(id=1)
@@ -45,7 +47,6 @@ class ReviewModelTest(TestCase):
             author=testuser,
             excerpt='This is a test excerpt',
         )
-        
         testreview = Review.objects.create(
             post=testpost,
             name='Test Name',
@@ -53,11 +54,11 @@ class ReviewModelTest(TestCase):
             email='test@example.com',
             content='This is a test review',
         )
-        
+
     def test_content(self):
         review = Review.objects.get(id=1)
         self.assertEqual(review.content, 'This is a test review')
-     
+
     def test_approved_default(self):
         review = Review.objects.get(id=1)
         self.assertEqual(review.approved, False)
